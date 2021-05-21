@@ -24,7 +24,9 @@ const ExerciseSection: React.FC<IProps> = ({ exercises }) => {
         })
     }
 
-    return ({ renderRows() })
+    return <>
+        { renderRows()}
+    </>
 }
 
 export default ExerciseSection

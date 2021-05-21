@@ -17,6 +17,19 @@ const Diary = () => {
             sets: 3,
             reps: 5,
             weight: '140kg'
+        },
+        {
+            exerciseName: 'Bent Over Row',
+            sets: 3,
+            reps: 12,
+            weight: '70kg'
+        },
+        {
+            exerciseName: 'Seated Dumbell Row',
+            sets: 3,
+            reps: 12,
+            weight: '30kg'
+
         }
     ])
 
