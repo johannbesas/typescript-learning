@@ -1,6 +1,12 @@
 import React, { useState } from 'react'
+import { IState as Props } from '../App'
 
-const AddNewExercise = () => {
+interface IProps {
+    exercises: Props['exercises']
+    setExercises: React.Dispatch<React.SetStateAction<Props['exercises']>>
+}
+
+const AddNewExercise: React.FC<IProps> = ({exercises, setExercises}) => {
 
     const [input, setInput] = useState({
         exerciseName: '',
@@ -17,7 +23,28 @@ const AddNewExercise = () => {
     }
 
     const handleClick = (): void => {
+        if ( !input.exerciseName || !input.sets ||
+            !input.reps ||!input.weight
+        ) {
+            return
+        }
 
+        setExercises([
+            ...exercises,
+            {
+                exerciseName: input.exerciseName,
+                sets: parseInt(input.sets),
+                reps: parseInt(input.reps),
+                weight: input.weight
+            }
+        ])
+
+        setInput({
+            exerciseName: '',
+            sets: '',
+            reps: '',
+            weight: ''
+        })
     }
 
     return (

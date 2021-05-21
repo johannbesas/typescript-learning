@@ -1,41 +1,28 @@
-import React, { useState } from 'react'
-import ExerciseSection from './ExerciseSection'
+import React from 'react'
+import { IState as Props } from "../App"
 
-export interface IState {
-    exercises: {
-        exerciseName: string
-        sets: number
-        reps: number
-        weight: string
-    }[]
+interface IProps {
+    exercises: Props['exercises']
 }
 
-const Diary = () => {
-    const [exercises, setExercises] = useState<IState["exercises"]>([
-        {
-            exerciseName: 'Deadlift',
-            sets: 3,
-            reps: 5,
-            weight: '140kg'
-        },
-        {
-            exerciseName: 'Bent Over Row',
-            sets: 3,
-            reps: 12,
-            weight: '70kg'
-        },
-        {
-            exerciseName: 'Seated Dumbell Row',
-            sets: 3,
-            reps: 12,
-            weight: '30kg'
+const Diary: React.FC<IProps> = ({ exercises }) => {
 
-        }
-    ])
+    const renderRows = (): JSX.Element[] => {
+        return exercises.map((exercise) => {
+            return (
+                <tr className='something'>
+                    <td>{exercise.exerciseName}</td>
+                    <td>{exercise.sets}</td>
+                    <td>{exercise.reps}</td>
+                    <td>{exercise.weight}</td>
+                </tr>
+            )
+        })
+    }
 
     return <div>
         <input></input>
-        <table id='log'>
+        <table>
             <thead>
                 <tr>
                     <th>Exercise</th>
@@ -45,18 +32,9 @@ const Diary = () => {
                 </tr>
             </thead>
             <tbody>
-                <ExerciseSection exercises={exercises} />
+                {renderRows()}
             </tbody>
         </table>
-
-        {/* <tr>
-                    <td><input type="text" name='exerciseName' placeholder="Enter name of exercise" value={exerciseName} onChange={(e) => handleChange(e)}></input></td>
-                    <td><input type="text" name='sets' placeholder="How many sets" value={sets} onChange={(e) => handleChange(e)}></input></td>
-                    <td><input type="text" name='reps' placeholder="How many reps" value={reps} onChange={(e) => handleChange(e)}></input></td>
-                    <td><input type="text" name='weight' placeholder="How much weight" value={weight} onChange={(e) => handleChange(e)}></input></td>
-                </tr> */}
-        <button>Add New Exercise</button>
-        <button>Save</button>
     </div>
 }
 
