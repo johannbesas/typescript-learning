@@ -1,12 +1,14 @@
 import React from 'react'
 //Components
 import Diary from './components/Diary'
+import AddNewExercise from './components/AddNewExercise'
 
 const App = () => {
   return (
-  <div>
-    <Diary/>
-    </div>)
+    <>
+      <Diary />
+      <AddNewExercise />
+    </>)
 }
 
 export default App

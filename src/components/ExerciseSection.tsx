@@ -1,13 +1,5 @@
 import React from 'react'
-
-interface IProps {
-    exercises: {
-        exerciseName: string
-        sets: number
-        reps: number
-        weight: string
-    }[]
-}
+import { IState as IProps} from './Diary'
 
 const ExerciseSection: React.FC<IProps> = ({ exercises }) => {
 

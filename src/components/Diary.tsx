@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import ExerciseSection from './ExerciseSection'
 
-interface IState {
+export interface IState {
     exercises: {
         exerciseName: string
         sets: number
@@ -55,7 +55,6 @@ const Diary = () => {
                     <td><input type="text" name='reps' placeholder="How many reps" value={reps} onChange={(e) => handleChange(e)}></input></td>
                     <td><input type="text" name='weight' placeholder="How much weight" value={weight} onChange={(e) => handleChange(e)}></input></td>
                 </tr> */}
-        <button >Add New Exercise</button>
         <button>Add New Exercise</button>
         <button>Save</button>
     </div>
